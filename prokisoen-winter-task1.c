@@ -52,4 +52,3 @@ void printArray(int data[6][8])
 		}
 	}
 }
-
