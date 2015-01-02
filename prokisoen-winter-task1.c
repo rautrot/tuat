@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 void printArray(int[6][8]);
 void countNum(char *, int[6][8]);
 
