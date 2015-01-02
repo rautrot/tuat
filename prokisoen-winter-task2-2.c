@@ -92,4 +92,3 @@ void createh(int a[], int h[], int n)
 		}
 	}
 }
-
