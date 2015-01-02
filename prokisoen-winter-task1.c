@@ -4,25 +4,39 @@
 #include <string.h>
 
 
-void printArray(int [6][8]);
-void countNum(char *,int [6][8]);
+void printArray(int[6][8]);
+void countNum(char *, int[6][8]);
 
 int main()
 {
-	int data[6][8];
-	char *input,str[256];
+	int data[6][8], num[6] = { 0 }, first[6] = { 0 },k=0;
+	char c;
 	for (int i = 0; i < 6; i++)
 	{
 		for (int j = 0; j < 8; j++)data[i][j] = 0;
 	}
-
-	scanf("%s", str);
-	input = (char*)malloc(sizeof(char)*(strlen(str) + 1));
-	strcpy(input, str);
-	countNum(input, data);
-	free(input);
-
+	while ((c = getchar()) >= 'A' && c <='F')
+	{
+		for (k = 0; k < 6; k++)
+		{
+			if (c == ('A' + k))
+			{
+				if (first['A' + k - 65] == 0)first['A' + k - 65]++;
+				else
+				{
+					if (num['A'+k - 65] > 7)num['A'+k - 65] = 7;
+					data['A'+k - 65][num['A'+k - 65]]++;
+				}
+				num['A' + k - 65] = -1;
+			}
+		}
+		for (int k = 0; k < 6; k++)num[k]++;
+	}
 	printArray(data);
+	
+	fflush(stdin);
+	getchar();
+	
 	return 0;
 }
 
@@ -40,33 +54,3 @@ void printArray(int data[6][8])
 	}
 }
 
-
-//Še•¶š‚Ì‹——£‚ğ‹‚ß‚éŠÖ”
-void countNum(char *input,int data[6][8])
-{
-	int cnt = 0, i = 0,j,len;
-	len = strlen(input);
-	for (j = 'A'; j <= 'F'; j++,i = 0)
-	{
-		//ˆêŒÂ–Ú‚Ì•¶š‚ğŒ©‚Â‚¯‚é
-		while (1)
-		{
-			if (input[i] == j || input[i] == '\0')break;
-			i++;
-		}
-		for (i++; i < len; i++)
-		{
-			if (input[i] != j)
-			{
-				cnt++;
-			}
-			else
-			{
-				if (cnt>7)cnt = 7;
-				data[j - 'A'][cnt]++;
-				cnt = 0;
-			}
-		}
-		cnt = 0;
-	}
-}
