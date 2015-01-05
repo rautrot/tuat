@@ -9,7 +9,7 @@ void createh(int[], int[], int n);
 int main()
 {
 
-	int sum1, sum2, n, index;
+	int sum1, sum2, n, index,i,k;
 	printf("—v‘f”‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢:");
 	scanf("%d", &n);
 
@@ -21,7 +21,7 @@ int main()
 	a[0] = 1; //a[0]‚Í1ˆÈã‚Å‚µ‚©‚ ‚è‚¦‚È‚¢
 	a[n-1] = 0; //a[n]‚Í0ˆÈŠO‚ ‚è‚¦‚È‚¢
 
-	for (int k = 1; k < n-1; k++)a[k] = 0;
+	for (k = 1; k < n-1; k++)a[k] = 0;
 	int *h = (int*)malloc(sizeof(int)*n);
 
 
@@ -30,7 +30,7 @@ int main()
 		sum1 = 0;
 		sum2 = 0;
 		index = n - 1;
-		for (int k = 0; k < n; k++)
+		for (k = 0; k < n; k++)
 		{
 			h[k] = 0;
 			sum1 += a[k];
@@ -45,7 +45,7 @@ int main()
 				if (judge(a, h, n) == 1)
 				{
 					printf("{%d", h[0]);
-					for (int i = 1; i < n; i++)printf(",%d", h[i]);
+					for (i = 1; i < n; i++)printf(",%d", h[i]);
 					printf("}\n");
 				}
 			}
@@ -75,7 +75,8 @@ int main()
 
 int judge(int a[], int h[], int n)
 {
-	for (int i = 0; i < n; i++)
+	int i;
+	for (i = 0; i < n; i++)
 	{
 		if (a[i] != h[i])return 0; //a‚Æh‚ª“¯‚¶‚Å‚Í‚È‚¢
 	}
@@ -84,9 +85,10 @@ int judge(int a[], int h[], int n)
 
 void createh(int a[], int h[], int n)
 {
-	for (int i = 0; i < n; i++)
+	int i,j;
+	for (i = 0; i < n; i++)
 	{
-		for (int j = 0; j < n; j++)
+		for (j = 0; j < n; j++)
 		{
 			if (a[j] == i)h[i]++;
 		}

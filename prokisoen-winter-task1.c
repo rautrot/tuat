@@ -8,11 +8,11 @@ void countNum(char *, int[6][8]);
 
 int main()
 {
-	int data[6][8], num[6] = { 0 }, first[6] = { 0 },k=0;
+	int data[6][8], num[6] = { 0 }, first[6] = { 0 },k,i,j;
 	char c;
-	for (int i = 0; i < 6; i++)
+	for (i = 0; i < 6; i++)
 	{
-		for (int j = 0; j < 8; j++)data[i][j] = 0;
+		for (j = 0; j < 8; j++)data[i][j] = 0;
 	}
 	while ((c = getchar()) >= 'A' && c <='F')
 	{
@@ -29,7 +29,7 @@ int main()
 				num['A' + k - 65] = -1;
 			}
 		}
-		for (int k = 0; k < 6; k++)num[k]++;
+		for (k = 0; k < 6; k++)num[k]++;
 	}
 	printArray(data);
 	
@@ -42,11 +42,12 @@ int main()
 //”z—ñ‚ğ•\¦‚·‚éŠÖ”
 void printArray(int data[6][8])
 {
+	int i,j;
 	printf("X: 0 1 2 3 4 5 6 7");
-	for (int i = 0; i < 6; i++)
+	for (i = 0; i < 6; i++)
 	{
 		printf("\n%c:", 'A' + i);
-		for (int j = 0; j < 8; j++)
+		for (j = 0; j < 8; j++)
 		{
 			printf(" %d", data[i][j]);
 		}
